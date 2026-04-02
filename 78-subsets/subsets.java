@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
 
     public static void subsetfunc(int[] nums, int index, List<Integer> subList, List<List<Integer>> ans) {
