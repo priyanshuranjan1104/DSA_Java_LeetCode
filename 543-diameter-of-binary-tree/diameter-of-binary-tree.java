@@ -14,31 +14,21 @@
  * }
  */
 class Solution {
-
-    public static int traversal(TreeNode root) {
-
-        if(root == null){
-            return 0;
-        }
-
-    int leftMax = traversal(root.left);
-    int rightMax = traversal(root.right);
-
-    int max = Math.max(leftMax, rightMax) + 1;
-    return max;
-    }
+    int diameter = 0;
 
     public int diameterOfBinaryTree(TreeNode root) {
+        height(root);
+        return diameter;
+    }
 
-        if(root == null){
-            return 0;
-        }
+    private int height(TreeNode node) {
+        if (node == null) return 0;
 
-        int diam1 = diameterOfBinaryTree(root.left);
-        int diam2 = diameterOfBinaryTree(root.right);
-        int diam3 = traversal(root.left) + traversal(root.right);
+        int left = height(node.left);
+        int right = height(node.right);
 
-        return Math.max(diam3, Math.max(diam1, diam2));
-        
+        diameter = Math.max(diameter, left + right);
+
+        return 1 + Math.max(left, right);
     }
 }
