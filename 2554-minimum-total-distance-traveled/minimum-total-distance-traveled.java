@@ -11,7 +11,7 @@ class Solution {
         return solve(0, 0, robot, factory, dp);
     }
 
-    public long solve(int i, int j, List<Integer> robot, int[][] factory, Long[][] dp) {
+    private long solve(int i, int j, List<Integer> robot, int[][] factory, Long[][] dp) {
         if (i == robot.size()) return 0; 
         if (j == factory.length) return Long.MAX_VALUE;
 
