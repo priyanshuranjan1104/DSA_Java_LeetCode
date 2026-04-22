@@ -1,22 +1,15 @@
-import java.util.*;
-
 class Solution {
     public int findContentChildren(int[] g, int[] s) {
         Arrays.sort(g);
         Arrays.sort(s);
 
-        int child = 0;
-        int cookie = 0;
+        int i = 0, j = 0;
 
-        while (child < g.length && cookie < s.length) {
-            
-            if (s[cookie] >= g[child]) {
-                child++;  
-            }
-
-            cookie++;      
+        while (i < g.length && j < s.length) {
+            if (s[j] >= g[i]) i++;
+            j++;
         }
 
-        return child;
+        return i;
     }
 }
